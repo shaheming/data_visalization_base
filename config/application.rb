@@ -21,5 +21,9 @@ module App
       require "pry"
       config.console = Pry
     end
+    # redis_url = ENV['REDIS_URL'] || "redis://redis:6379"
+
+    # redis_config_hash = {url: "#{redis_url}/0/cache", expires_in: 1.days}
+    # config.cache_store = :redis_store, redis_config_hash
   end
 end
