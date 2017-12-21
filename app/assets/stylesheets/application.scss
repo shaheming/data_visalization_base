@@ -13,3 +13,13 @@
  *= require_tree .
  *= require_self
  */
+  @import "bootstrap";
+  @import "bootstrap-sprockets";
+  @import "bootstrap-datepicker3";
+
+
+.fixed-bottom {
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+}

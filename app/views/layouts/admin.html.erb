@@ -10,7 +10,17 @@
 		<div class="container-fluid">
 			<%= render "common/navbar" %>
 			<%= render "common/flashes" %>
-			<%= yield %>
+			<div class="row">
+				<div class="col-md-2">
+					<%= link_to("Admin",admin_path,class:"btn btn-info") %>
+					<br>
+					<br>
+					<%= link_to("Wechat Images",admin_wechat_index_path,class:"btn btn-info") %>
+				</div>
+				<div class="col-md-10">
+					<%= yield %>
+				</div>
+			</div>
 		</div>
 		
 		<%= render "common/footer" %>
