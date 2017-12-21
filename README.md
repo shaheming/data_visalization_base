@@ -1,24 +1,12 @@
-# README
+```shell
+$ docker-compose up
+$ docker-compose run --rm web bin/rails c
+$ docker-compose stop
+```
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## 看容器内的进程
 
-Things you may want to cover:
+```shell
+$ docker top daemon_dave	
+```
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
