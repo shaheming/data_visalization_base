@@ -49,6 +49,10 @@ chdir APP_ROOT do
       # system! 'bin/rails restart'
     end
   end
+
+  if ENV['RAILS_ENV'] == 'production'
+    system("bin/rails assets:precompile")
+  end
   system("rm -f tmp/pids/server.pid")
   system("bin/rails s -p #{ENV["PORT"]} -b #{ENV["SERVER_HOST"]}")
 end

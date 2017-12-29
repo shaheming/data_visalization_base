@@ -77,7 +77,7 @@ export SERVER_IP="0.0.0.0"
 export RAILS_ENV=production
 export SERVER_PORT="88"
 docker-compose up >> 'docker-compose.log' 2>&1 &
-echo >> ~/.zshrc "export SECRET_KEY_BASE=c704221c88fa0cb434693961418f8cf9505152f19614bb2d09d9dd00637ee4a677df4311f70df3cd3d647fb12f9794bd4b190d6495c99a36c49a016f25fa9ac9"
+echo >> ~/.zshrc "export SECRET_KEY_BASE=2aaa2973ecf9ea5f4a2b1fb8c174fd8bfa70107c040e9b494aa9e0b73589b14e3fc12780ab9b3522b8f12ef166b67663a70c2ff7867f4c22430d7ab541304db4"
 
 ```
 
