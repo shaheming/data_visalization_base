@@ -10,8 +10,6 @@ $ docker-compose stop
 $ docker top daemon_dave	
 ```
 
-
-
 ### docker 卷里面储存的数据
 
 ```shell
@@ -23,34 +21,12 @@ $ ls -ltrh /var/lib/docker/volumes
 
 `Ctrl-a d` 来退出
 
-
-
-```shell
- $ sudo docker run -d -p 6379 --name redis jamtur01/redis
-```
-
-
-
-```shell
-$ sudo docker network create app
-```
-
-
-
-```shell
-$ docker run -d --net=app --name db jamtur01/redis
-```
-
-
-
 删除所有的
 
 ```shell
 $ docker stop $(docker ps -a -q)
 $ docker rm $(docker ps -a -q)
 ```
-
-
 
 docker compose
 
@@ -62,7 +38,7 @@ $ sudo chmod +x /usr/local/bin/docker-compose
 $ docker-compose --version #测试Docker Compose是否工作
 ```
 
-第一次
+### 第一次部署
 
 ```shell
 md my_website
@@ -72,20 +48,19 @@ ln -s
 #production
 export SERVER_IP=$(curl -s ip.cn | grep -oE "[0-9.]+")
 #deveopent
-111.231.92.159
+# example 111.231.92.xxx
 export SERVER_IP="0.0.0.0"
 export RAILS_ENV=production
 export SERVER_PORT="88"
 docker-compose up >> 'docker-compose.log' 2>&1 &
+# use rake secret to generate code
 echo >> ~/.zshrc "export SECRET_KEY_BASE=2aaa2973ecf9ea5f4a2b1fb8c174fd8bfa70107c040e9b494aa9e0b73589b14e3fc12780ab9b3522b8f12ef166b67663a70c2ff7867f4c22430d7ab541304db4"
 
 ```
 
+### 第二次部署
 
-
-拉了代码之后 
-
-```
+```shell
 bin/update
 ```
 
