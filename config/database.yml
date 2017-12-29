@@ -12,7 +12,7 @@ default: &default
 development:
   <<: *default
   database: <%= ENV['DB_NAME'] %>
-development:
+production:
   <<: *default
   database: <%= ENV['DB_PD_NAME'] %>
 

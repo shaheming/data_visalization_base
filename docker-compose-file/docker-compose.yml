@@ -57,6 +57,7 @@ services:
       DB_ENCODING: utf8mb4
       SERVER_HOST: 0.0.0.0
       REDIS_HOST: "redis:6379"
+      SECRET_KEY_BASE: ${SECRET_KEY_BASE}
     command: ["/root/app/bin/setup"]
     stdin_open: true
     tty: true
@@ -75,6 +76,8 @@ services:
       APP_LOCAL_PORT: 3000
       APP_SERVER: web
       MY_SERVER_NAME: ${SERVER_IP}
+    depends_on:
+      - web
     command: ["./docker-compose-file/nginx_start.sh"]
 networks:
   default:
