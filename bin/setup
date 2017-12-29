@@ -17,8 +17,8 @@ chdir APP_ROOT do
 
   puts '== Installing dependencies =='
   system! 'gem install bundler'
-  system! "bundle binstubs bundler --force"
   system('bundle check') || system!('bundle install')
+  system! "bundle binstubs bundler --force"
   require 'rails/all'
   require 'active_record'
   require 'mysql2'
