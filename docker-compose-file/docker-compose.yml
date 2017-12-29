@@ -43,8 +43,7 @@ services:
     networks:
       - default
     environment: &app_env
-      RAILS_ENV: ${ML_LEARNING_ENV} #set environment
-      RAILS_ENV: development
+      RAILS_ENV: ${RAILS_ENV} #set environment
       PORT: 3000
       DB_HOST: mysql
       DB_PORT: 3306
