@@ -7,8 +7,8 @@ server {
     server_name my_server_name; #set you domain or server ip
 
     # define the public application root
-    root   /root/app/public;
-    index  index.html;
+    root   /root/app/public/;
+#    index  index.html;
 
     # define where Nginx should write its logs
     access_log /root/app/log/nginx.access.log;
@@ -24,21 +24,27 @@ server {
     }
 
     # serve static (compiled) assets directly if they exist (for rails production)
-    location ~ ^/(assets|images|javascripts|stylesheets|swfs|system)/ {
-        try_files $uri @rails;
+#    location ~ ^/(assets|images|javascripts|stylesheets|swfs|system)/ {
+#        try_files $uri @rails;
+#
+#        access_log off;
+#        gzip_static on; # to serve pre-gzipped version
+#
+#        expires max;
+#        add_header Cache-Control public;
+#
+#        # Some browsers still send conditional-GET requests if there's a
+#        # Last-Modified header or an ETag header even if they haven't
+#        # reached the expiry date sent in the Expires header.
+#        add_header Last-Modified "";
+#        add_header ETag "";
+#        break;
+#    }
 
-        access_log off;
-        gzip_static on; # to serve pre-gzipped version
-
+    location ^~ /assets/ {
+        gzip_static on;
         expires max;
         add_header Cache-Control public;
-
-        # Some browsers still send conditional-GET requests if there's a
-        # Last-Modified header or an ETag header even if they haven't
-        # reached the expiry date sent in the Expires header.
-        add_header Last-Modified "";
-        add_header ETag "";
-        break;
     }
 
     # send non-static file requests to the app server

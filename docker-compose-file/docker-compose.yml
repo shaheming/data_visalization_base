@@ -68,7 +68,7 @@ services:
     networks:
       - default
     volumes:
-      - ./rails_docker/docker-compose-file:/docker-compose-file:ro
+      - ./rails_docker/docker-compose-file:/docker-compose-file
       - ./rails_docker:/root/app
     ports:
       - "${SERVER_PORT}:80"
