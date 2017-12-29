@@ -72,9 +72,11 @@ ln -s
 #production
 export SERVER_IP=$(curl ip.cn | grep -oE "[0-9.]+")
 #deveopent
+111.231.92.159
 export SERVER_IP="0.0.0.0"
-
+export RAILS_ENV=production
 export SERVER_PORT="88"
+docker-compose up >> 'docker-compose.log' 2>&1 &
 ```
 
 

@@ -7,13 +7,14 @@ volumes:
     driver: local
 services:
   mysql:
-    image: sander123/mysql-5.6.34-minimal
+    image: mysql:5.6.34
     restart: always
     ports:
       - 3307:3306
     restart: always
     volumes:
       - ./mysql_data:/var/lib/mysql/
+      - ./rails_docker/docker-compose-file/minimal.cnf:/etc/mysql/conf.d/:ro
     environment:
       MYSQL_USER: sand
       MYSQL_PASSWORD: sand
