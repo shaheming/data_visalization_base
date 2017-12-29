@@ -49,6 +49,7 @@ chdir APP_ROOT do
       # system! 'bin/rails restart'
     end
   end
+  system("rm -f tmp/pids/server.pid")
   system("bin/rails s -p #{ENV["PORT"]} -b #{ENV["SERVER_HOST"]}")
 end
 

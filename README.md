@@ -52,8 +52,26 @@ $ docker rm $(docker ps -a -q)
 
 
 
-```
-$ docker volume rm machinelearning_bundle
+第一次
+
+```shell
+md my_website
+cd my_website
+git clone
+ln -s 
+#production
+export SERVER_IP=$(curl ip.cn | grep -oE "[0-9.]+")
+#deveopent
+export SERVER_IP="0.0.0.0"
+
+export SERVER_PORT="88"
 ```
 
-拉了代码之后 bin/update
+
+
+拉了代码之后 
+
+```
+bin/update
+```
+

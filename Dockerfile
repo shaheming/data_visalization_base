@@ -7,7 +7,7 @@ RUN  mkdir -p /etc/apt/ \
 ENV BUNDLE_PATH /usr/local/bundle
 
 RUN apt-get update -qq  \
-    && apt-get install -y build-essential libpq-dev nodejs libmagickwand-dev
+    && apt-get install -y build-essential libpq-dev nodejs libmagickwand-dev vim
 
 ARG WORKING_PATH
 WORKDIR ${WORKING_PATH}
