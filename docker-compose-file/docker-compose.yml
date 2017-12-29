@@ -14,7 +14,7 @@ services:
     restart: always
     volumes:
       - ./mysql_data:/var/lib/mysql/
-      - ./rails_docker/docker-compose-file/minimal.cnf:/etc/mysql/conf.d/:ro
+      - ./rails_docker/docker-compose-file/minimal.cnf:/etc/mysql/conf.d/minimal.cnf:ro
     environment:
       MYSQL_USER: sand
       MYSQL_PASSWORD: sand

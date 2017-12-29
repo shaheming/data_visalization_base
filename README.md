@@ -70,7 +70,7 @@ cd my_website
 git clone
 ln -s 
 #production
-export SERVER_IP=$(curl ip.cn | grep -oE "[0-9.]+")
+export SERVER_IP=$(curl -s ip.cn | grep -oE "[0-9.]+")
 #deveopent
 111.231.92.159
 export SERVER_IP="0.0.0.0"
