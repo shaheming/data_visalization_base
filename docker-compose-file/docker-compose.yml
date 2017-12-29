@@ -7,7 +7,7 @@ volumes:
     driver: local
 services:
   mysql:
-    image: mysql:5.6.34
+    image: sander123/mysql-5.6.34-minimal
     restart: always
     ports:
       - 3307:3306
