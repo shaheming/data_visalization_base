@@ -1,0 +1,18 @@
+:concurrency: 5
+:queues:
+  - default
+  # by default, weight is 1
+  # - [critical, 2]
+
+grouping:
+  :poll_interval: 5       # Amount of time between polling batches
+  :max_batch_size: 5000   # Maximum batch size allowed
+  :lock_ttl: 1            # Batch queue flush lock timeout job enqueues
+
+development:
+  :concurrency: 5
+production:
+  :concurrency: 25
+
+:pidfile: ./tmp/pids/sidekiq.pid
+:logfile: ./log/sidekiq.log

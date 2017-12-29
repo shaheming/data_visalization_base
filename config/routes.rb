@@ -6,4 +6,6 @@ Rails.application.routes.draw do
     get "/" => "welcome#index"
   end
 
+  get '/test' => "welcome#test"
+
 end

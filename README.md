@@ -56,3 +56,4 @@ $ docker rm $(docker ps -a -q)
 $ docker volume rm machinelearning_bundle
 ```
 
+拉了代码之后 bin/update

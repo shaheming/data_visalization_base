@@ -12,7 +12,10 @@ default: &default
 development:
   <<: *default
   database: <%= ENV['DB_NAME'] %>
+development:
+  <<: *default
+  database: <%= ENV['DB_PD_NAME'] %>
 
 test:
   <<: *default
-  database: test_database
+  database: <%= ENV['DB_TS_NAME'] %>

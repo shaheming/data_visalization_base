@@ -61,6 +61,10 @@ gem 'redis-namespace'
 gem 'redis-rails'
 gem 'redis-rack-cache'
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
+gem 'sidekiq'
+gem 'sidekiq-cron'
+gem 'sidekiq-grouping'
+gem 'sinatra', require: false
 
 gem 'mysql2', '>= 0.3.18', '< 0.5'
 

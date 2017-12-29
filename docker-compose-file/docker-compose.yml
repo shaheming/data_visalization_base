@@ -1,0 +1,62 @@
+version: '3'
+
+volumes:
+  store:
+    driver: local
+  bundle:
+    driver: local
+services:
+  mysql:
+    image: mysql:5.6.34
+    ports:
+      - 3307:3306
+    volumes:
+      - ./mysql_data:/var/lib/mysql/
+    environment:
+      MYSQL_USER: sand
+      MYSQL_PASSWORD: sand
+      MYSQL_ROOT_PASSWORD: root
+    networks:
+      - default
+
+  redis:
+    image: redis
+    networks:
+      - default
+  web:
+    build:
+      context: ./rails_docker
+      args:
+        WORKING_PATH: /root/app
+    ports:
+      - 3000:3000
+    depends_on:
+      - mysql
+      - redis
+    volumes:
+      - ./rails_docker:/root/app
+      - bundle:/usr/local/bundle
+    networks:
+      - default
+    environment: &app_env
+      RAILS_ENV: ${ML_LEARNING_ENV} #set environment
+      RAILS_ENV: development
+      PORT: 3000
+      DB_HOST: mysql
+      DB_PORT: 3306
+      DB_USER: root
+      DB_PSWD: root
+      DB_NAME: my_server_dev
+      DB_PD_NAME: my_server
+      DB_TS_NAME: my_server_test
+      DB_ADAPTER: mysql2
+      DB_ENCODING: utf8mb4
+      SERVER_HOST: 0.0.0.0
+      REDIS_HOST: "redis:6379"
+    command: ["/root/app/bin/setup"]
+    stdin_open: true
+    tty: true
+
+networks:
+  default:
+
