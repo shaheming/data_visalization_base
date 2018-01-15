@@ -19,6 +19,7 @@ services:
       MYSQL_USER: sand
       MYSQL_PASSWORD: sand
       MYSQL_ROOT_PASSWORD: root
+      LANG: C.UTF-8
     networks:
       - default
 
@@ -27,6 +28,8 @@ services:
     restart: always
     networks:
       - default
+    environment:
+      LANG: C.UTF-8
 
   web:
     build:
@@ -58,6 +61,7 @@ services:
       SERVER_HOST: 0.0.0.0
       REDIS_HOST: "redis:6379"
       SECRET_KEY_BASE: ${SECRET_KEY_BASE}
+      LANG: C.UTF-8
     command: ["/root/app/bin/setup"]
     stdin_open: true
     tty: true
@@ -76,6 +80,7 @@ services:
       APP_LOCAL_PORT: 3000
       APP_SERVER: web
       MY_SERVER_NAME: ${SERVER_IP}
+      LANG: C.UTF-8
     depends_on:
       - web
     command: ["./docker-compose-file/nginx_start.sh"]
