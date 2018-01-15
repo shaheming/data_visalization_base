@@ -64,3 +64,10 @@ echo >> ~/.zshrc "export SECRET_KEY_BASE=2aaa2973ecf9ea5f4a2b1fb8c174fd8bfa70107
 bin/update
 ```
 
+### rails g 
+```shell
+docker run --rm  railsdockercompose_web rails g model log
+docker exec  railsdockercompose_web bin/bash
+rails g model log
+```
+
