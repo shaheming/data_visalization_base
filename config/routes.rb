@@ -8,4 +8,18 @@ Rails.application.routes.draw do
 
   get '/test' => "welcome#test"
 
+
+  namespace :admin do
+    # sidekiq monitors
+    require 'sidekiq/web'
+    Sidekiq::Web.set :session_secret, Rails.application.secrets[:secret_key_base]
+    Sidekiq::Web.use Rack::Auth::Basic do |username, password|
+      # Protect against timing attacks: (https://codahale.com/a-lesson-in-timing-attacks/)
+      # - Use & (do not use &&) so that it doesn't short circuit.
+      # - Use `variable_size_secure_compare` to stop length information leaking
+      ActiveSupport::SecurityUtils.variable_size_secure_compare(username, 'admin') &
+          ActiveSupport::SecurityUtils.variable_size_secure_compare(password, 'sidekiq_admin')
+    end
+    mount Sidekiq::Web => '/sidekiq'
+  end
 end
