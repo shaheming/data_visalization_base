@@ -67,7 +67,7 @@ bin/update
 ### rails g 
 ```shell
 docker run --rm  railsdockercompose_web rails g model log
-docker exec  railsdockercompose_web bin/bash
-rails g model log
+docker  exec  -it railsdockercompose_web_1 /bin/bash
+dbash railsdockercompose_web_1
 ```
 

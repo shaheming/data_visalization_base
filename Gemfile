@@ -44,6 +44,7 @@ group :development, :test do
   gem 'selenium-webdriver'
   gem 'pry'
   gem 'pry-nav'
+  gem 'rspec-rails', '~> 3.7'
 end
 
 group :development do
@@ -69,3 +70,6 @@ gem 'sinatra', require: false
 gem 'mysql2', '>= 0.3.18', '< 0.5'
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+#Config helps you easily manage environment specific settings in an easy and usable manner. https://github.com/railsconfig/config
+gem 'config'
