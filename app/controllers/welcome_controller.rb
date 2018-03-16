@@ -8,7 +8,6 @@ class WelcomeController < ApplicationController
 
   def test
     render :json => {msg: "hello word! test  ww"}
-    p params
   end
 
 

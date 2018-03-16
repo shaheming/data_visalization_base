@@ -10,7 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180115053808) do
+ActiveRecord::Schema.define(version: 20180128055810) do
+
+  create_table "investments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
+    t.string "name"
+    t.bigint "user_id"
+    t.float "amount", limit: 24, default: 0.0
+    t.integer "invest_count", default: 0
+    t.float "exp_growth_rate", limit: 24, default: 0.0
+    t.float "single_invest_amount", limit: 24, default: 0.0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_investments_on_user_id"
+  end
 
   create_table "logs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
     t.text "log_msg"
@@ -34,6 +46,17 @@ ActiveRecord::Schema.define(version: 20180115053808) do
     t.boolean "is_admin", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  create_table "websites", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
+    t.text "url"
+    t.text "parse_directive"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.text "description"
+    t.integer "investment_id"
+    t.index ["user_id"], name: "index_websites_on_users_id"
   end
 
 end

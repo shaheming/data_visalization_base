@@ -4,7 +4,7 @@
 		<title>Heming Sha</title>
 		<%= csrf_meta_tags %>
 		<%= stylesheet_link_tag 'application' %>
-		
+		<%= javascript_include_tag 'application' %>
 	</head>
 	<body>
 		<div class="container-fluid">
@@ -14,7 +14,7 @@
 		</div>
 		
 		<%= render "common/footer" %>
-		<%= javascript_include_tag 'application' %>
+
 		<%= yield :handwrite_javascript %>
 	</body>
 </html>
