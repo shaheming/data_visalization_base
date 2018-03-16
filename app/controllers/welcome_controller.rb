@@ -11,6 +11,8 @@ class WelcomeController < ApplicationController
     p params
   end
 
+
+
   private
 
   def check_1
