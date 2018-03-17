@@ -1,28 +1,29 @@
-<%= content_for :handwrite_javascript do  %>
-<script type="text/javascript">
-$(
-    function() {
-        function footerPosition() {
-            $("footer").removeClass("fixed-bottom");
-            var contentHeight = document.body.scrollHeight,
-                winHeight = window.innerHeight;
-            if (!(contentHeight > winHeight)) {
-                $("footer").addClass("fixed-bottom");
-            } else {
-                $("footer").removeClass("fixed-bottom");
-            }
-        }
-        footerPosition();
-        $(window).resize(footerPosition);
-    }
-)
-</script>
+<%= content_for :handwrite_javascript do %>
+  <script type="text/javascript">
+      $(
+          function () {
+              function footerPosition() {
+                  $("footer").removeClass("fixed-bottom");
+                  var contentHeight = document.body.scrollHeight,
+                      winHeight = window.innerHeight;
+                  if (!(contentHeight > winHeight)) {
+                      $("footer").addClass("fixed-bottom");
+                  } else {
+                      $("footer").removeClass("fixed-bottom");
+                  }
+              }
+
+              footerPosition();
+              $(window).resize(footerPosition);
+          }
+      )
+  </script>
 
 <% end %>
 
 <footer class="container fixed-bottom" style="margin-top: 100px;">
-    <p class="text-center">Copyright ©2017
-        <br>Design by
-        <a href="https://shaheming.github.io/" target=_new>Heming Sha</a>
-    </p>
+  <p class="text-center">Copyright © <%= "2017 - #{Time.now.year}" %>
+    <br>Design by
+    <a href="https://shaheming.github.io/" target=_new>Heming Sha</a>
+  </p>
 </footer>
