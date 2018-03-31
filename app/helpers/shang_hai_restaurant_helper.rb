@@ -1,0 +1,2 @@
+module ShangHaiRestaurantHelper
+end

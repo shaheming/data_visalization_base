@@ -1,24 +1,14 @@
-<div id="main" style="height:500px;border:1px solid #ccc;padding:10px;"></div>
-<!--<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts-all-3.js"></script>-->
-
-<!--<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts-all-3.js"></script>-->
-
+<div id="main" style="height:600px;border:1px solid #ccc;padding:10px;"></div>
 <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts-all-3.js"></script>
-<!--<script src="js/echarts-all.js"></script>-->
 <script src="js/echarts.min.js"></script>
 <script src="js/echarts-gl.js"></script>
-<!--<script src="js/EchartsLayer.js"></script>-->
-
-
 <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.39.1/mapbox-gl.js'></script>
 <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.39.1/mapbox-gl.css' rel='stylesheet' />
 <script type="text/javascript">
-    var uploadedDataURL = "restaurant_data";
-
+    var uploadedDataURL = "average_data";
     mapboxgl.accessToken = "pk.eyJ1Ijoic2FuZGVyc2FhYSIsImEiOiJjamZmZG84d28ydmNuMnlvYmd2azVpMG9sIn0.VMXdPrekGQ6kxA9Rwk76Sg";
     var myChart = echarts.init(document.getElementById('main'));
     myChart.showLoading();
-    var linedata = [1000,1000]
     $.getJSON(uploadedDataURL, function (linedata) {
 
         myChart.hideLoading();
@@ -64,7 +54,7 @@
                         intensity: 0.
                     },
                     ambientCubemap: {
-                        texture: 'assets/map.jpg',
+                        texture: '',
                         exposure: 1,
                         diffuseIntensity: 0.5
                     }

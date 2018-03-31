@@ -7,9 +7,11 @@ Rails.application.routes.draw do
   end
 
   get '/test' => "welcome#test"
-  get '/restaurant_data' => "welcome#restaurant_data"
+  get '/average_data' => "shang_hai_restaurant#average_data"
+  get '/total_data' => "shang_hai_restaurant#total_data"
 
-
+  get '/average' => "shang_hai_restaurant#average"
+  get '/total' => "shang_hai_restaurant#total"
   namespace :admin do
     # sidekiq monitors
     require 'sidekiq/web'
