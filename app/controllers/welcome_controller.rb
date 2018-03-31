@@ -9,6 +9,10 @@ class WelcomeController < ApplicationController
     render :json => {msg: "hello word! test  ww"}
   end
 
+  def restaurant_data
+
+  end
+
   private
 
   def check_1

@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   end
 
   get '/test' => "welcome#test"
+  get '/restaurant_data' => "welcome#restaurant_data"
 
 
   namespace :admin do

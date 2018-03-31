@@ -1,8 +1,8 @@
 class CreateRestaurantData < ActiveRecord::Migration[5.1]
   def change
     create_table :restaurant_data do |t|
-      t.string :east_longitude
-      t.string :north_latitude
+      t.string :longitude
+      t.string :latitude
       t.string :district
       t.string :name
       t.float :price

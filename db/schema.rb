@@ -31,8 +31,8 @@ ActiveRecord::Schema.define(version: 20180331114725) do
   end
 
   create_table "restaurant_data", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
-    t.string "east_longitude"
-    t.string "north_latitude"
+    t.string "longitude"
+    t.string "latitude"
     t.string "district"
     t.string "name"
     t.float "price", limit: 24
@@ -46,8 +46,6 @@ ActiveRecord::Schema.define(version: 20180331114725) do
     t.float "service_rate", limit: 24
     t.float "env_rate", limit: 24
     t.string "category"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
