@@ -10,7 +10,7 @@ class WelcomeController < ApplicationController
   end
 
   def restaurant_data
-
+render :json => RestaurantDatum.to_json
   end
 
   private
