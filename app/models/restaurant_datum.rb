@@ -4,7 +4,7 @@ class RestaurantDatum < ApplicationRecord
 
     self.all.map{
       |r| {name: r.name,value:[r.longitude.to_f, r.latitude.to_f, r.price.to_f]}
-    }[1..3000]
+    }
   end
 
 end

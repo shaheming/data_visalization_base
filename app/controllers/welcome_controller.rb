@@ -1,16 +1,16 @@
 class WelcomeController < ApplicationController
-  before_action :check_1, :check_2, :only => :test
 
   def index
     @text = Time.now.to_s + "SHAME"
   end
 
   def test
-    render :json => {msg: "hello word! test  ww"}
+
   end
 
   def restaurant_data
-render :json => RestaurantDatum.to_json
+    data = RestaurantDatum.to_json
+    render :json => [data, data.size]
   end
 
   private
