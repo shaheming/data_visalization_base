@@ -1,0 +1,2 @@
+class RestaurantDatum < ApplicationRecord
+end
