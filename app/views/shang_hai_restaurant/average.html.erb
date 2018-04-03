@@ -3,7 +3,7 @@
 <script src="js/echarts.min.js"></script>
 <script src="js/echarts-gl.js"></script>
 <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.39.1/mapbox-gl.js'></script>
-<link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.39.1/mapbox-gl.css' rel='stylesheet' />
+<link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.39.1/mapbox-gl.css' rel='stylesheet'/>
 <script type="text/javascript">
     var uploadedDataURL = "average_data";
     mapboxgl.accessToken = "pk.eyJ1Ijoic2FuZGVyc2FhYSIsImEiOiJjamZmZG84d28ydmNuMnlvYmd2azVpMG9sIn0.VMXdPrekGQ6kxA9Rwk76Sg";
@@ -14,6 +14,16 @@
         myChart.hideLoading();
 
         myChart.setOption({
+            // http://echarts.baidu.com/option.html#visualMap-continuous
+            tooltip: {
+                trigger: 'item',
+                formatter: function (value) {
+                    var data = value["data"];
+                    var name = data["name"];
+                    var price = data["value"][2]
+                    return `店名：${name} <br> 平均消费金额：￥${price.toLocaleString()}`; // 范围标签显示内容。
+                }
+            },
 
             visualMap: {
                 show: false,
@@ -64,8 +74,14 @@
                 shading: 'realistic',
                 coordinateSystem: 'mapbox',
                 barSize: 0.2,
-                silent: true,
-                data: linedata[0]
+                bevelSize: 0.3,
+                // silent: true,
+                data: linedata[0],
+                barSmoothness: 100,
+                itemStyle: {
+                    emphasis: {label: {show: false}}
+                }
+
             }]
         });
     });

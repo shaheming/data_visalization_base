@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     get "/" => "welcome#index"
   end
 
-  get '/test' => "welcome#test"
+
   get '/average_data' => "shang_hai_restaurant#average_data"
   get '/total_data' => "shang_hai_restaurant#total_data"
 

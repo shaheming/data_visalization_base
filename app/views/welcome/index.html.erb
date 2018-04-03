@@ -10,10 +10,6 @@
     // Step:3 echarts和zrender被echarts-plain.js写入为全局接口
     (function () {
             console.log('init_echarts');
-            $.get("<%=url_for(controller: 'welcome', action: 'test', format: 'json')%>").success(function (data) {
-                console.log(data);
-            })
-
         }
     )();
     var myChart = echarts.init(document.getElementById('main'));

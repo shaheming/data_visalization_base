@@ -4,6 +4,7 @@
 <script src="js/echarts-gl.js"></script>
 <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.39.1/mapbox-gl.js'></script>
 <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.39.1/mapbox-gl.css' rel='stylesheet'/>
+<br>
 <script type="text/javascript">
     var uploadedDataURL = "total_data";
     mapboxgl.accessToken = "pk.eyJ1Ijoic2FuZGVyc2FhYSIsImEiOiJjamZmZG84d28ydmNuMnlvYmd2azVpMG9sIn0.VMXdPrekGQ6kxA9Rwk76Sg";
@@ -14,12 +15,21 @@
         myChart.hideLoading();
 
         myChart.setOption({
+            // http://echarts.baidu.com/option.html#visualMap-continuous
+            tooltip: {
+                trigger: 'item',
+                formatter: function (value) {
+                    var data = value["data"];
+                    var name = data["name"];
+                    var price = data["value"][2]
+                    return `店名：${name} <br> 消费总额：￥${price.toLocaleString()}`; // 范围标签显示内容。
+                }
+            },
             visualMap: {
                 show: false,
                 calculable: true,
                 realtime: false,
                 inRange: {
-                    // color: ['#313695', '#4575b4', '#74add1', '#abd9e9', '#e0f3f8', '#ffffbf', '#fee090', '#fdae61', '#f46d43', '#d73027', '#a50026']
                     color:<%= raw @color_range%>
                 },
                 outOfRange: {
@@ -77,8 +87,14 @@
                 shading: 'realistic',
                 coordinateSystem: 'mapbox',
                 barSize: 0.2,
-                silent: true,
-                data: linedata[0]
+                bevelSize: 0.2,
+                // silent: true,
+                data: linedata[0],
+                barSmoothness: 100,
+                itemStyle: {
+                    emphasis: {label: {show: false}},
+                    // opacity:0.9
+                }
             }]
         })
         ;
