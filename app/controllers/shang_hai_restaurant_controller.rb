@@ -6,12 +6,14 @@ class ShangHaiRestaurantController < ApplicationController
   def average
     @map_style_path = STYLE
     @color_range = COLOR
+    @pitch = params[:pitch] || 60
   end
 
   def total
     @map_style_path = STYLE
     # @color_range = ["#F4E986", "#F4E48C", "#F4DC93", "#F5D29A", "#F5C6A0", "#F4AFA6", "#D1929C", "#B98196", "#9E6F8F", "#91678C", "#825E89", "#5B4C82", "#55487A", "#4A3F6A"]
     @color_range = COLOR
+    @pitch = params[:pitch] || 60
   end
 
   def average_data
