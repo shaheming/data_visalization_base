@@ -1,9 +1,9 @@
-<div id="main" style="height:600px;border:1px solid #ccc;padding:10px;"></div>
+<div id="main" style="height: 100%;width: 100%;border:1px solid #ccc;padding:10px;"></div>
 <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts-all-3.js"></script>
 <script src="js/echarts.min.js"></script>
 <script src="js/echarts-gl.js"></script>
 <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.39.1/mapbox-gl.js'></script>
-<link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.39.1/mapbox-gl.css' rel='stylesheet' />
+<link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.39.1/mapbox-gl.css' rel='stylesheet'/>
 <script type="text/javascript">
     var uploadedDataURL = "total_data";
     mapboxgl.accessToken = "pk.eyJ1Ijoic2FuZGVyc2FhYSIsImEiOiJjamZmZG84d28ydmNuMnlvYmd2azVpMG9sIn0.VMXdPrekGQ6kxA9Rwk76Sg";
@@ -14,52 +14,64 @@
         myChart.hideLoading();
 
         myChart.setOption({
-
             visualMap: {
                 show: false,
                 calculable: true,
                 realtime: false,
                 inRange: {
-                    color: ['#313695', '#4575b4', '#74add1', '#abd9e9', '#e0f3f8', '#ffffbf', '#fee090', '#fdae61', '#f46d43', '#d73027',
-                        '#a50026']
+                    // color: ['#313695', '#4575b4', '#74add1', '#abd9e9', '#e0f3f8', '#ffffbf', '#fee090', '#fdae61', '#f46d43', '#d73027', '#a50026']
+                    color:<%= raw @color_range%>
                 },
                 outOfRange: {
                     colorAlpha: 0
-                },
+                }
+                ,
                 max: linedata[1]
             },
             mapbox: {
                 center: [121.4693, 31.123070],
-                zoom: 10,
-                pitch: 50,
+                zoom: 11.5,
+                pitch: 60,
                 bearing: -10,
-                style: 'mapbox://styles/mapbox/light-v9',
+                style: '<%= @map_style_path %>',
                 boxHeight: 50,
                 // altitudeScale: 3e2,
-                postEffect: {
-                    enable: true,
-                    SSAO: {
+                postEffect:
+                    {
                         enable: true,
-                        radius: 2,
-                        intensity: 1.5
+                        SSAO:
+                            {
+                                enable: true,
+                                radius:
+                                    2,
+                                intensity:
+                                    1.5
+                            }
                     }
-                },
-                light: {
-                    main: {
-                        intensity: 1,
-                        shadow: true,
-                        shadowQuality: 'high'
-                    },
-                    ambient: {
-                        intensity: 0.
-                    },
-                    ambientCubemap: {
-                        texture: '',
-                        exposure: 1,
-                        diffuseIntensity: 0.5
-                    }
-                }
-            },
+                ,
+                // light: {
+                //     main: {
+                //         intensity: 1,
+                //         shadow:
+                //             true,
+                //         shadowQuality:
+                //             'high'
+                //     }
+                //     ,
+                //     ambient: {
+                //         intensity: 0.
+                //     }
+                //     ,
+                //     ambientCubemap: {
+                //         texture: '',
+                //         exposure:
+                //             1,
+                //         diffuseIntensity:
+                //             0.5
+                //     }
+                // }
+            }
+            ,
             series: [{
                 type: 'bar3D',
                 shading: 'realistic',
@@ -68,7 +80,8 @@
                 silent: true,
                 data: linedata[0]
             }]
-        });
+        })
+        ;
     });
 
 </script>

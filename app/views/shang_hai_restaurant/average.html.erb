@@ -1,4 +1,4 @@
-<div id="main" style="height:600px;border:1px solid #ccc;padding:10px;"></div>
+<div id="main" style="height: 100%;width: 100%;border:1px solid #ccc;padding:10px;"></div>
 <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts-all-3.js"></script>
 <script src="js/echarts.min.js"></script>
 <script src="js/echarts-gl.js"></script>
@@ -20,8 +20,7 @@
                 calculable: true,
                 realtime: false,
                 inRange: {
-                    color: ['#313695', '#4575b4', '#74add1', '#abd9e9', '#e0f3f8', '#ffffbf', '#fee090', '#fdae61', '#f46d43', '#d73027',
-                        '#a50026']
+                    color:<%= raw @color_range %>
                 },
                 outOfRange: {
                     colorAlpha: 0
@@ -30,10 +29,10 @@
             },
             mapbox: {
                 center: [121.4693, 31.123070],
-                zoom: 10,
-                pitch: 50,
+                zoom: 11.5,
+                pitch: 60,
                 bearing: -10,
-                style: 'mapbox://styles/mapbox/light-v9',
+                style: '<%= @map_style_path %>',
                 boxHeight: 50,
                 // altitudeScale: 3e2,
                 postEffect: {
