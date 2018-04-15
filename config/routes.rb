@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root "welcome#index"
+
   namespace :admin do
     get "/" => "welcome#index"
   end
@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get '/average_data' => "shang_hai_restaurant#average_data"
   get '/total_data' => "shang_hai_restaurant#total_data"
 
+  root "shang_hai_restaurant#average"
   get '/average' => "shang_hai_restaurant#average"
   get '/total' => "shang_hai_restaurant#total"
   namespace :admin do
