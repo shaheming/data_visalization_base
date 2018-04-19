@@ -8,13 +8,19 @@ server {
 
     # define the public application root
     root   /root/app/public/;
-#    index  index.html;
+    #当响应请求的 location 区块中，没有自己的 root 指令，上述的 root 指令才会被使用。
+    #index  index.html;
 
     # define where Nginx should write its logs
     access_log /root/app/log/nginx.access.log;
     error_log /root/app/log/nginx.error.log;
 
     # deny requests for files that should never be accessed
+    location /visaulize {
+        root /root/app/public/web_publish;
+    }
+
+
     location ~ /\. {
         deny all;
     }
@@ -48,6 +54,9 @@ server {
     }
 
     # send non-static file requests to the app server
+    #  try_files $uri @rails;
+    # 1. try $uri static
+    # 2. try @rails
     location / {
         try_files $uri @rails;
     }
@@ -57,6 +66,11 @@ server {
         proxy_set_header  X-Forwarded-For $proxy_add_x_forwarded_for;
         proxy_set_header Host $http_host;
         proxy_redirect off;
-        proxy_pass http://puma;
+        proxy_pass http://puma; #note this puma equal to upstream puam in the head
     }
+
+#    location /fact {
+#        proxy_pass   http://127.0.0.1:10086/fact;
+#    }
+#   you can use it the send some service to other services
 }
